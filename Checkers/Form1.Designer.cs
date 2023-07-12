@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.G = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // G
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 484);
-            this.panel1.TabIndex = 0;
+            this.G.BackColor = System.Drawing.Color.Gray;
+            this.G.Location = new System.Drawing.Point(10, 10);
+            this.G.Name = "G";
+            this.G.Size = new System.Drawing.Size(604, 622);
+            this.G.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 500);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1061, 900);
+            this.Controls.Add(this.G);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.ShowIcon = false;
@@ -56,7 +56,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel G;
     }
 }
 
