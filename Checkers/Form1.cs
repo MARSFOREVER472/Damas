@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,22 @@ namespace Checkers
                     P[i, j].Location = new Point(left, top); // Nueva posición (x, y).
                     P[i, j].Size = new Size(50, 50); // Tamaño del tablero.
                     left += 50; // Tamaño del ancho del tablero a incrementar.
+                    P[i, j].Name = i + " " + j; // El nombre se le asigna a un especio vacío del tablero.
+
+                    // Usaremos las condiciones "if" y "else" para que el tablero pueda interactuar con cada una de sus 3 fichas.
+
+                    if (i < (n / 2) - 1 && P[i, j].BackColor == Color.Black) { P[i, j].Image = Properties.Resources.r; P[i, j].Name += " r"; } // Esto hace referencia a que la ficha roja estuviese en los cuadros negros del tablero por defecto.
+                    else if (i > (n / 2) && P[i, j].BackColor == Color.Black) // En caso contrario...
+                    {
+                        P[i, j].Image = Properties.Resources.g; P[i, j].Name += " g"; // La ficha verde quedará en los mismos cuadros mencionados anteriormente.
+                    }
+
+                    // Asegurarse de que todas las fichas estén en el centro de cada cuadro.
+
+                    P[i, j].SizeMode = PictureBoxSizeMode.CenterImage;
+
+                    // Se añaden los controles por cada fila y/o columna del tablero a las fichas.
+
                     G.Controls.Add(P[i, j]);
                 }
                 top += 50;
