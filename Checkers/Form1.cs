@@ -23,6 +23,7 @@ namespace Checkers
 
         int n; // Variable numérica para los colores de las casillas.
         PictureBox[,] P; // Variable para las Casillas del tablero.
+        string color = "r", k = "", B1 = "", B2 = "", K2 = "";
 
         // Se carga la interfaz ejecutable.
         private void Form1_Load(object sender, EventArgs e)
@@ -60,13 +61,24 @@ namespace Checkers
 
                     // Asegurarse de que todas las fichas estén en el centro de cada cuadro.
 
-                    P[i, j].SizeMode = PictureBoxSizeMode.CenterImage;
+                    P[i, j].SizeMode = PictureBoxSizeMode.CenterImage; // Tablero tiene que estar centrado.
+                    P[i, j].MouseHover += (sender2, e2) => // Cuando se selecciona una imagen detectada mediante el cursor del mouse...
+                    {
+                        PictureBox p = sender2 as PictureBox; // La variable "p" sería un PictureBox mediante una iteración asignada anteriormente.
+                        if (p.Image != null) p.BackColor = Color.FromArgb(255, 64, 64, 64); // El color de fondo se define según el formato indicado anteriormente.
+                    };
+
+                    P[i, j].MouseLeave += (sender2, e2) => // Cuando suelta el elemento seleccionado mediante el cursor del mouse...
+                    {
+                        PictureBox p = sender2 as PictureBox; // La variable "p" sería un PictureBox mediante una iteración asignada anteriormente.
+                        if (p.Image != null) p.BackColor = Color.Black; // El color de fondo para este elemento será negro.
+                    };
 
                     // Se añaden los controles por cada fila y/o columna del tablero a las fichas.
 
-                    G.Controls.Add(P[i, j]);
+                    G.Controls.Add(P[i, j]); // Añade controladores al tablero.
                 }
-                top += 50;
+                top += 50; // Tamaño de la altura del tablero a incrementar.
             }
         }
     }
